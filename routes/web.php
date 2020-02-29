@@ -21,13 +21,6 @@ Route::get('/', function () {
 Route::get('', function () {
     return view('index');
 });
-// Route::get('/index', function () {
-//     return view('index');
-// });
-
-Route::get('/personalPage', function () {
-    return view('personal-page');
-});
 
 Route::get('/cart', ['as'=>'cart', 'uses'=> 'cartController@selectedProducts']);
 Route::get('/shop', ['as'=>'shop', 'uses'=> 'productsController@showAllProducts']);
@@ -35,6 +28,7 @@ Route::get('/product-details', ['as'=>'product-details', 'uses'=> 'productsContr
 Route::get('/blog', function () {return view('blog');});
 Route::get('/blog-single', function () {return view('blog-single');});
 Route::get('/contact-us', function () {return view('contact-us');});
+Route::get('/personalPage', function () {return view('personal-page');});
 Route::get('/mens-shoes', ['as'=>'shoes', 'uses'=> 'categoryController@shoes']);
 
 
@@ -45,20 +39,31 @@ Route::get('/register', ['as'=>'register', 'uses'=> 'UsersController@register'])
 Route::post('/checkRegisterInputs', ['as'=>'register', 'uses'=> 'UsersController@validation']);
 
 
-//admin
+//++++++++++++++++++++++++++++++++++++++++++  Admin   +++++++++++++++++++++++++++++++++++++
 Route::get('/admin', function () {return view('admin.index');});
 Route::get('/admin/index2', function () {return view('admin.index2');});
 Route::get('/admin/index3', function () {return view('admin.index3');});
 
-//admin/users
-Route::get('/delete/{id}', ['as'=>'showuserstable', 'uses'=> 'Admin\UserController@destroy']);
-Route::get('/edit/{id}', ['as'=>'edit', 'uses'=> 'Admin\UserController@edit']);
-Route::post('/checkUpdateInputs', ['uses'=> 'Admin\UserController@update']);
 
-//admin/products
-Route::get('product/delete/{id}', ['as'=>'delete', 'uses'=> 'Admin\ProductController@destroy']);
-Route::get('product/edit/{id}', ['as'=>'edit', 'uses'=> 'Admin\ProductController@edit']);
-Route::post('product/checkUpdatedProduct', ['uses'=> 'Admin\ProductController@update']);
+//     ------------------------------------ admin/users   --------------------------
+Route::resource('admin/users', 'Admin\UserController');
+
+//     ----------------------------------- admin/products   ------------------------
+Route::resource('admin/products', 'Admin\ProductController');
+
+//      ----------------------------------- admin/comments   ------------------------
+Route::resource('admin/comment', 'Admin\CommentController');
+
+
+// Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+//     Route::resource('/users', 'UserController');
+//     Route::resource('/products', 'ProductController');
+//     Route::resource('/comment', 'CommentController');
+// });
+
+
+
+
 
 
 
@@ -79,12 +84,8 @@ Route::post('product/checkUpdatedProduct', ['uses'=> 'Admin\ProductController@up
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/admin/users', 'Admin\UserController',['except'=>['show','create','store']]);
-// Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
-//     Route::resource('/users', 'UserController',['except'=>['show','create','store']]);
-// });
 
-Route::resource('/admin/products','Admin\productController', ['except'=>['show','create','store']]);
+
 
 
 

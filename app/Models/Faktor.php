@@ -18,8 +18,8 @@ class Faktor extends Model
         return $this->hasMany('App\Models\Payment');
     }
 
-    public function Kala(){
-        return $this->belongsToMany('App\Models\Kala');
+    public function Product(){
+        return $this->belongsToMany('App\Models\Product');
     }
 
 }

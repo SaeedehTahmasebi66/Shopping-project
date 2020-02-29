@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Discount extends Model
 {
-    public function Kala(){
-        return $this->hasMany('App\Models\Kala');
+    public function Product(){
+        return $this->hasMany('App\Models\Product');
     }
 }

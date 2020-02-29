@@ -12,12 +12,12 @@
       <div style="direction: rtl">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-          <div class="image">
+          {{-- <div class="image">
             <img src="https://www.gravatar.com/avatar/52f0fbcbedee04a121cba8dad1174462?s=200&d=mm&r=g" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block">حسام موسوی</a>
-          </div>
+          </div> --}}
         </div>
 
         <!-- Sidebar Menu -->
@@ -35,17 +35,24 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                    <a href="{{'/admin/users'}}" class="nav-link active">
+                    <a href="{{'/admin/users'}}" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p> مدیریت افراد </p>
+                        <p> مدیریت اعضا </p>
                     </a>
                     </li>
                     <li class="nav-item">
                     <a href="{{'/admin/products'}}" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>
-                        <p> مدیریت کالا </p>
+                        <p> مدیریت محصولات </p>
                     </a>
                     </li>
+                    <li class="nav-item">
+                        {{-- <a href="{{'/admin/comment'}}" class="nav-link"> --}}
+                        <a href="{{route('comment.index')}}" class="nav-link">
+                            <i class="fa fa-circle-o nav-icon"></i>
+                            <p> مدیریت کامنت ها </p>
+                        </a>
+                        </li>
                     {{-- <li class="nav-item">
                     <a href="{{'/admin/index3'}}" class="nav-link">
                         <i class="fa fa-circle-o nav-icon"></i>

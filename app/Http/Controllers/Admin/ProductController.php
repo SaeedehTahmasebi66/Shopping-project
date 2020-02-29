@@ -2,87 +2,130 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Product;
 use App\Http\Controllers\Controller;
-
-use App\Models\Kala;
-
 use Illuminate\Http\Request;
 
-class productController extends Controller
+class ProductController extends Controller
 {
 
     // public function __construct(){
     //     $this->middleware('auth');
     // }
 
-    public function getall(){
-
-        //echo "HI";
-        $allkala=Kala::all();
-        return view('showKala')->with('all',$allkala);
-    }
-
     public function index()
     {
-        $products=Kala::all();
-        return view('admin.products.index')->with('products',$products);
+        $products=Product::all();
+        return view('admin.products.index',compact('products'));
     }
 
-    public function add()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        return view('admin.products.add');
+        return view('admin.products.create');
     }
 
-    public function insert(Request $request){
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $request->validate([
             'name' => 'required | string',
             'description' => 'string',
-            'categoryid' => 'required',
+            // 'category_id' => 'required',
             'price' => 'required',
             'number' => 'required | numeric',
-            'discountid' => 'numeric',
-
+            // 'discountid' => 'numeric',
         ]);
 
-       $form = new Kala();
-       $form->name = $request->post('name');
-        $form->description = $request->post('description');
-        $form->categoryid = $request->post('categoryid');
-        $form->price = $request->post('price');
-        $form->number = $request->post('number');
-        $form->discountid = $request->post('discountid');
-        $form->save();
+        $newProduct = new Product();
+        $newProduct->name = $request->post('name');
+        $newProduct->description = $request->post('description');
+        // $newProduct->category_id = $request->post('category_id');
+        $newProduct->price = $request->post('price');
+        $newProduct->number = $request->post('number');
+        // $newProduct->discountid = $request->post('discountid');
+        $newProduct->save();
 
-        return redirect('admin/products')->with('products',Kala::all());
+        return redirect('admin/products')->with('success', 'محصول جدید افزوده شد !');
+
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Product $product)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
 
     public function edit($id)
     {
-        $editProduct = Kala::find($id);
-        return view('admin.products.edit')->with('selectedProduct',$editProduct);
+        $selectedProduct = Product::find($id);
+        return view('admin.products.edit', compact('selectedProduct'));
     }
 
-    public function update(Request $request)
+
+      /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
     {
-        $id = $request->id;
-        $editUser = Kala::find($id);
-        $editUser->name = $request->post('name');
-        $editUser->description = $request->post('description');
-        $editUser->categoryid = $request->post('categoryid');
-        $editUser->price = $request->post('price');
-        $editUser->number = $request->post('number');
-        // $editUser->discountid = $request->post('discountid');
+        $request->validate([
+            'name' => 'required | string',
+            'description' => 'string',
+            // 'categoryid' => 'required',
+            'price' => 'required',
+            'number' => 'required | numeric',
+            // 'discountid' => 'numeric',
+        ]);
 
-        $editUser->save();
-        $allusers = Kala::all();
-        return redirect('admin/products')->with('all',$allusers);
+        $editProduct = Product::find($id);
+        $editProduct->name = $request->post('name');
+        $editProduct->description = $request->post('description');
+        // $editProduct->categoryid = $request->post('categoryid');
+        $editProduct->price = $request->post('price');
+        $editProduct->number = $request->post('number');
+        // $editProduct->discountid = $request->post('discountid');
+        $editProduct->save();
+
+        return redirect('admin/products')->with('success', 'محصول به روز رسانی شد !');
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Product  $product
+     * @return \Illuminate\Http\Response
+     */
 
     public function destroy($id)
     {
-        $deleteUser = Kala::find($id);
-        $deleteUser->delete();
-        $allproducts = Kala::all();
-        return redirect('admin/products')->with('all',$allproducts);
+        $deleteProduct = Product::find($id);
+        $deleteProduct->delete();
+        return redirect('admin/products')->with('success', 'محصول مورد نظر حذف شد!');
     }
 }
+

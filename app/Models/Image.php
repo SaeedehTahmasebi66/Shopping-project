@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    public function Kala(){
-        return $this->belongsTo('App\Models\Kala');
+    public function Product(){
+        return $this->belongsTo('App\Models\Product');
     }
 }

@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index()
     {
         $users= User::all();
-        return view('admin.users.index')->with("all",$users);
+        return view('admin.users.index')->with("allUsers",$users);
     }
 
     /**
@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -41,7 +41,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fullname' => 'string',
+            'username' => 'required | string',
+            'phonenumber' => 'required | numeric | regex:/[0-9]{11}/',
+            'email' => 'required | email ',
+            'password'=> 'required',
+        ]);
+
+        $newUser = new User;
+        $newUser->fullname = $request->post('fullname');
+        $newUser->username = $request->post('username');
+        $newUser->phonenumber = $request->post('phonenumber');
+        $newUser->email = $request->post('email');
+        $newUser->password = $request->post('password');
+        $newUser->gender = 1;                                 //فعلا
+        $newUser->save();
+
+        return redirect('admin/users')->with('success', 'عضو جدید افزوده شد !');;
     }
 
     /**
@@ -74,9 +91,14 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $id = $request->id;
+        $request->validate([
+            'fullname' => 'string',
+            'username' => 'required | string',
+            'phonenumber' => 'required | numeric | regex:/[0-9]{11}/',
+            'email' => 'required | email ',
+        ]);
         $editUser = User::find($id);
         $editUser->fullname = $request->post('fullname');
         $editUser->username = $request->post('username');
@@ -84,8 +106,7 @@ class UserController extends Controller
         $editUser->email = $request->post('email');
 
         $editUser->save();
-        $allusers = User::all();
-        return redirect('admin/users')->with('all',$allusers);
+        return redirect('admin/users')->with('success', 'اطلاعات شخص ویرایش شد !');
     }
 
     /**
@@ -98,7 +119,6 @@ class UserController extends Controller
     {
         $deleteUser = User::find($id);
         $deleteUser->delete();
-        $allusers = User::all();
-        return redirect('admin/users')->with('all',$allusers);
+        return redirect('admin/users')->with('success', 'شخص مورد نظر حذف شد !');
     }
 }

@@ -6,8 +6,8 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+							<h2><span>ای</span>-شاپر</h2>
+							<p>فروشگاه اینترنتی ای شاپر فعالیت خود را در زمینه پوشاک به صورت تخصصی از سال ۱۳۹۳ بعنوان یکی از بهترین فروشگاه آنلاین پوشاک آغاز نمود.</p>
 						</div>
 					</div>
 					<div class="col-sm-7">
@@ -74,7 +74,7 @@
 					<div class="col-sm-3">
 						<div class="address">
 							<img src="/images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+							<p>آدرس: تهران - تقاطع خیابان جمهوری و لاله زار - پلاک 13 - طبقه چهارم</p>
 						</div>
 					</div>
 				</div>
@@ -84,61 +84,59 @@
 		<div class="footer-widget">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-2">
+                    <div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Service</h2>
+							<h2>خرید سریع</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Online Help</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Order Status</a></li>
-								<li><a href="#">Change Location</a></li>
-								<li><a href="#">FAQ’s</a></li>
+								<li><a href="#">پوشاک مردانه</a></li>
+								<li><a href="#">پوشاک زنانه</a></li>
+								<li><a href="#">پوشاک بچه گانه</a></li>
+								<li><a href="#">لباس ورزشی</a></li>
+								{{-- <li><a href="#">Shoes</a></li> --}}
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Quock Shop</h2>
+							<h2>خدمات مشتریان</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">T-Shirt</a></li>
-								<li><a href="#">Mens</a></li>
-								<li><a href="#">Womens</a></li>
-								<li><a href="#">Gift Cards</a></li>
-								<li><a href="#">Shoes</a></li>
+                                <li><a href="#">پاسخ به پرسش‌های متداول</a></li>
+								<li><a href="#">وضعیت سفارش</a></li>
+                                <li><a href="#">تغییر آدرس</a></li>
+                                <li><a href="#">رویه‌های بازگرداندن کالا</a></li>
+								{{-- <li><a href="#">FAQ’s</a></li> --}}
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>Policies</h2>
+							<h2>راهنمای خرید از ای شاپر</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privecy Policy</a></li>
-								<li><a href="#">Refund Policy</a></li>
-								<li><a href="#">Billing System</a></li>
-								<li><a href="#">Ticket System</a></li>
+                                <li><a href="#">راهنمای خرید</a></li>
+								<li><a href="#">نحوه ثبت سفارش</a></li>
+								<li><a href="#">رویه ارسال سفارش</a></li>
+								<li><a href="#">شیوه های پرداخت</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-2">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>درباره ای شاپر</h2>
 							<ul class="nav nav-pills nav-stacked">
-								<li><a href="#">Company Information</a></li>
-								<li><a href="#">Careers</a></li>
-								<li><a href="#">Store Location</a></li>
-								<li><a href="#">Affillate Program</a></li>
-								<li><a href="#">Copyright</a></li>
+                                <li><a href="#">اطلاعات شرکت</a></li>
+                                <li><a href="#">تماس با ما</a></li>
+                                <li><a href="#">قوانین و شرایط استفاده</a></li>
+								<li><a href="#">همکاری با ما</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-3 col-sm-offset-1">
 						<div class="single-widget">
-							<h2>About Shopper</h2>
+							<h2>عضویت در خبرنامه</h2>
 							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+								<input type="text" placeholder="آدرس ایمیل خود را وارد کنید" />
+								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-left"></i></button>
+								<p>با عضویت در خبرنامه می توانید اولین نفری باشید که از تخفیف ها و فروش های ویژه با خبر می شوید.</p>
 							</form>
 						</div>
 					</div>

@@ -20,8 +20,8 @@ class Users extends Model
         return $this->hasMany('App\Models\Faktor');
     }
 
-    public function Kala(){
-        return $this->belongsToMany('App\Models\Kala');
+    public function Product(){
+        return $this->belongsToMany('App\Models\Product');
     }
 
     public function Type(){

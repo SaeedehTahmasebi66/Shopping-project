@@ -4,11 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kala extends Model
+class Product extends Model
 {
     public $timestamps = false;
-    public $table = 'Kala';
-    
+
     public function Categoy(){
         return $this->belongsTo('App\Models\Category');
     }
@@ -27,5 +26,11 @@ class Kala extends Model
 
     public function Faktor(){
         return $this->belongsToMany('App\Models\Faktor');
+    }
+
+    protected $fillable = ['title' , 'content'];
+
+    public function Photos(){
+        return $this->morphMany('App\Models\Photos', 'imageable');
     }
 }
