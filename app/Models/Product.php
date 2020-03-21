@@ -28,8 +28,6 @@ class Product extends Model
         return $this->belongsToMany('App\Models\Faktor');
     }
 
-    protected $fillable = ['title' , 'content'];
-
     public function Photos(){
         return $this->morphMany('App\Models\Photos', 'imageable');
     }

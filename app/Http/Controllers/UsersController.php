@@ -39,18 +39,17 @@ class UsersController extends Controller
         $register->email = $request->post('email');
         $register->password = $request->post('password');
         $register-> gender = $request->post('gender');
-        $register->registerdate = time();
-        $register->logdate = time();
+        $register->registerdate = date("Y-m-d",time());
+        $register->logdate = date("Y-m-d",time());
 
         $register->save();
-        return redirect('register')->with('success','شما با موفقیت ثبت نام شدید.');
+        return redirect('login')->with('success',' شما با موفقیت ثبت نام شدید. اکنون میتوانید وارد شوید.');
     }
 
     public function register(){
-
-        //validateinputs
         return view('register');
     }
+
 
     public function profile(){
 

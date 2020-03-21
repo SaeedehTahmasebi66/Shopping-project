@@ -28,5 +28,14 @@ class Users extends Model
         return $this->belongsToMany('App\Models\Type');
     }
 
+    public function Comments(){
+        return $this->hasMany('App\Models\Comments');
+    }
+
+    public function Photos(){
+        return $this->morphMany('App\Models\Photos', 'imageable');
+    }
+
+
 
 }

@@ -22,6 +22,8 @@ Route::get('', function () {
     return view('index');
 });
 
+Route::get('', ['uses'=> 'productsController@showAllProducts']);
+
 Route::get('/cart', ['as'=>'cart', 'uses'=> 'cartController@selectedProducts']);
 Route::get('/shop', ['as'=>'shop', 'uses'=> 'productsController@showAllProducts']);
 Route::get('/product-details', ['as'=>'product-details', 'uses'=> 'productsController@product_details']);

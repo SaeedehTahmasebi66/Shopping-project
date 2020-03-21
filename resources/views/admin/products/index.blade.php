@@ -24,7 +24,7 @@
             <tr>
                 <th class="px-0">شناسه محصول</th>
                 <th class="px-1">نام محصول</th>
-                {{-- <th class="px-1">تصویر محصول</th> --}}
+                <th class="px-1">تصویر محصول</th>
                 <th class="px-1">توضیحات</th>
                 {{-- <th class="px-1">شناسه دسته محصول</th> --}}
                 <th class="px-1">قیمت</th>
@@ -43,12 +43,12 @@
                 <td>{{$product->id}}</td>
                 <td>{{$product->name}}</td>
                 {{-- <td>تصویر محصول</td> --}}
-                {{-- <td><img src="{{$v['fileimage']}}" alt="" style="height:50px; width:50px"></td> --}}
+                @foreach($product->Photos()->get() as $photo)
+                <td><img src="{{asset('/') . $photo->path }}" style="width:100px"/></td>
+                @endforeach
                 <td>{{$product->description}}</td>
-                {{-- <td>{{$product->category_id}}</td> --}}
                 <td>{{$product->price}}</td>
                 <td>{{$product->number}}</td>
-                {{-- <td>{{$product->discountid}}</td> --}}
                 <td>{{$product->created_at}}</td>
                 <td>{{$product->updated_at}}</td>
                 <td>{{$product->deleted_at}}</td>

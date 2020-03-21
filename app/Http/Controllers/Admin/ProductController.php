@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-
     // public function __construct(){
     //     $this->middleware('auth');
     // }
@@ -17,6 +16,7 @@ class ProductController extends Controller
     {
         $products=Product::all();
         return view('admin.products.index',compact('products'));
+
     }
 
     /**
@@ -127,5 +127,6 @@ class ProductController extends Controller
         $deleteProduct->delete();
         return redirect('admin/products')->with('success', 'محصول مورد نظر حذف شد!');
     }
+    
 }
 

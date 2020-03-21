@@ -117,8 +117,8 @@
 										</ul>
 									</div>
 								</div>
-							</div>
-
+                            </div>
+                            
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">
@@ -226,20 +226,28 @@
 
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">محصولات پرفروش</h2>
+                        <h2 class="title text-center">همه محصولات</h2>
+                        @foreach ($products as $product)
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 										<div class="productinfo text-center">
-											<img src="images/home/product1.jpg" alt="" />
-											<h2>$56</h2>
-											<p> ژاکت زنانه</p>
+                                            {{-- <img src="images/home/product1.jpg" alt="" /> --}}
+                                            @foreach($product->Photos()->get() as $photo)
+                                            <td><img src="{{ $photo->path }}"/></td>
+                                            @endforeach
+                                            {{-- <h2>$56</h2> --}}
+                                            <h2>{{$product->price}} تومان</h2>
+                                            {{-- <p> ژاکت زنانه</p> --}}
+                                            <p>{{$product->name}}</p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i> افزودن به سبد خرید </a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>ژاکت زنانه</p>
+                                                {{-- <h2>$56</h2> --}}
+                                                <h2>{{$product->price}} تومان</h2>
+                                                {{-- <p>ژاکت زنانه</p> --}}
+                                                <p>{{$product->name}}</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبد خرید</a>
 											</div>
 										</div>
@@ -251,8 +259,9 @@
 									</ul>
 								</div> --}}
 							</div>
-						</div>
-						<div class="col-sm-4">
+                        </div>
+                        @endforeach
+						{{-- <div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
@@ -268,14 +277,14 @@
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبد خرید</a>
 										</div>
 									</div>
-								</div>
+								</div> --}}
 								{{-- <div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
 									</ul>
 								</div> --}}
-							</div>
+							{{-- </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
@@ -293,14 +302,14 @@
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبد خرید</a>
 										</div>
 									</div>
-								</div>
+								</div> --}}
 								{{-- <div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
 									</ul>
 								</div> --}}
-							</div>
+							{{-- </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
@@ -319,14 +328,14 @@
 										</div>
 									</div>
 									<img src="images/home/new.png" class="new" alt="" />
-								</div>
+								</div> --}}
 								{{-- <div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
 									</ul>
 								</div> --}}
-							</div>
+							{{-- </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
@@ -345,14 +354,14 @@
 										</div>
 									</div>
 									<img src="images/home/sale.png" class="new" alt="" />
-								</div>
+								</div> --}}
 								{{-- <div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
 									</ul>
 								</div> --}}
-							</div>
+							{{-- </div>
 						</div>
 						<div class="col-sm-4">
 							<div class="product-image-wrapper">
@@ -370,15 +379,15 @@
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبد خرید</a>
 										</div>
 									</div>
-								</div>
+								</div> --}}
 								{{-- <div class="choose">
 									<ul class="nav nav-pills nav-justified">
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
 										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
 									</ul>
 								</div> --}}
-							</div>
-						</div>
+							{{-- </div>
+						</div> --}}
 
 					</div><!--features_items-->
 
